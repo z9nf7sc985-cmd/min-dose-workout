@@ -1,0 +1,36 @@
+name: Build icons & publish to GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decode PNG icons from base64 sources
+        run: |
+          mkdir -p icons
+          for f in icons-src/*.b64; do n=$(basename "$f" .b64); base64 -d "$f" > "icons/$n"; done
+          file icons/* || true
+      - name: Commit icons to main (if changed)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add icons
+          git diff --cached --quiet || (git commit -m "Build PNG icons" && git push)
+      - name: Publish site to gh-pages branch
+        run: |
+          git checkout --orphan gh-pages-publish
+          git add -A
+          git commit -q -m "Publish site from ${GITHUB_SHA}"
+          git push -f origin HEAD:gh-pages
+      - name: Try to enable Pages from gh-pages (may need admin; harmless if it fails)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/${{ github.repository }}/pages || gh api -X POST repos/${{ github.repository }}/pages -f "source[branch]=gh-pages" -f "source[path]=/"
