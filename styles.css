@@ -101,3 +101,6 @@ details summary::-webkit-details-marker{display:none}
 p{margin:8px 0}ul.plain{padding-left:18px;margin:6px 0}ul.plain li{margin:4px 0}
 .center{text-align:center}.mt{margin-top:12px}
 body.timer-on .view{padding-bottom:calc(var(--sab) + 290px)}
+.carnote{margin:12px 0 0;font-size:13px;font-weight:600;color:#ffd38a;background:rgba(255,181,71,.12);border:1px solid rgba(255,181,71,.35);border-radius:12px;padding:9px 11px}
+.set,.set-h{grid-template-columns:34px 1fr 64px}
+.chk{width:64px}
