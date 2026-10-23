@@ -104,3 +104,48 @@ body.timer-on .view{padding-bottom:calc(var(--sab) + 290px)}
 .carnote{margin:12px 0 0;font-size:13px;font-weight:600;color:#ffd38a;background:rgba(255,181,71,.12);border:1px solid rgba(255,181,71,.35);border-radius:12px;padding:9px 11px}
 .set,.set-h{grid-template-columns:34px 1fr 64px}
 .chk{width:64px}
+
+/* v3: visuals, guide, meals */
+.fig{background:#0f131c;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.fig img{display:block;width:100%;height:auto}
+.fig.big{margin:10px 0}
+.ex-row{display:flex;gap:12px;align-items:flex-start;margin-top:10px}
+.fig.thumb{flex:0 0 48%;max-width:200px}
+.ex-body{flex:1;min-width:0}.ex-body .tags{margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.lvl{display:inline-flex;align-items:center;gap:3px;font-size:12px;font-weight:800;padding:3px 8px;border-radius:8px;background:#20283a}
+.lvl i{width:7px;height:7px;border-radius:50%;background:#3a4256;display:inline-block}
+.lvl i:last-of-type{margin-right:3px}
+.lvl.l1{color:var(--accent)}.lvl.l1 i:nth-of-type(-n+1){background:var(--accent)}
+.lvl.l2{color:var(--warn)}.lvl.l2 i:nth-of-type(-n+2){background:var(--warn)}
+.lvl.l3{color:var(--bad)}.lvl.l3 i:nth-of-type(-n+3){background:var(--bad)}
+.hero .lvl{font-size:13px;padding:4px 10px;border-radius:999px}
+.st{font-size:12px;padding:3px 8px;border-radius:8px;background:rgba(76,201,240,.12);color:var(--accent2);font-weight:700}
+.howto{margin-top:8px}.howto ol,.howto ul{padding-left:20px;margin:6px 0}.howto li{margin:4px 0;font-size:14px}
+.hl{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin:12px 0 4px}
+.hl.bad{color:#ff9b9b}.hl.ok{color:var(--accent)}
+.ladder{display:flex;flex-wrap:wrap;gap:4px;align-items:center;font-size:12px}
+.ladder span{padding:3px 7px;border-radius:8px;background:#20283a;color:#b9c3d8}
+.ladder span.cur{background:var(--accent);color:#06210f;font-weight:800}.ladder b{color:var(--muted);font-weight:700}
+.vid{display:inline-block;margin-top:12px;color:var(--accent2);font-weight:700;text-decoration:none;font-size:14px}
+.guide summary{font-size:16px;color:var(--accent)}
+.ramp{font-size:13px;font-weight:600;color:#c9f9d6;background:rgba(124,242,154,.1);border:1px solid rgba(124,242,154,.3);border-radius:12px;padding:8px 11px}
+.restnote{font-size:14px;color:#ffe2b0;background:rgba(255,181,71,.1);border:1px solid rgba(255,181,71,.3);border-radius:12px;padding:10px 12px}
+.week{display:grid;grid-template-columns:1fr;gap:6px;margin-top:8px}
+.wk{display:grid;grid-template-columns:48px 1fr;gap:8px;padding:8px 10px;border-radius:10px;background:var(--card2);font-size:14px;color:var(--muted)}
+.wk.on{background:rgba(124,242,154,.12);color:var(--accent)}.wk.today{outline:2px solid var(--accent2)}.wk b{color:var(--text)}
+.tier{border-left:4px solid var(--line)}.tier.good{border-left-color:var(--accent)}.tier.ok{border-left-color:var(--accent2)}.tier.skip{border-left-color:var(--bad)}
+.sitem{margin:12px 0 0}.sitem b{display:block;font-size:15px}.sitem span{display:block;font-size:14px;color:#c8cfdd;margin-top:2px}
+.faith{background:linear-gradient(135deg,#1d2236,#151924 70%)}
+.verse{font-style:italic;border-left:3px solid var(--accent);padding-left:10px;margin:0;font-size:15px;line-height:1.45}
+.kratom{border-color:#3d4b6b}.kratom a{color:var(--accent2);font-weight:700}
+textarea{width:100%;background:#0f131c;border:1px solid var(--line);border-radius:12px;color:var(--text);padding:10px;font:inherit;font-size:16px;margin-top:6px}
+.num-in{width:110px;min-height:42px;border-radius:10px;border:1px solid var(--line);background:#0f131c;color:var(--text);text-align:center;font-weight:700;font-size:16px}
+.pbig{font-size:24px;font-weight:900;color:var(--accent)}
+.pfoods{display:flex;flex-wrap:wrap;gap:6px}.pfoods span{font-size:12px;padding:4px 8px;border-radius:8px;background:#20283a;color:#b9c3d8}.pfoods b{color:var(--text)}
+.day summary{justify-content:space-between;color:var(--text)}.day .dname{font-weight:800;font-size:16px}
+.day.today{border-color:var(--accent2)}
+.meal{display:grid;grid-template-columns:1fr;gap:2px;padding:9px 0;border-bottom:1px solid var(--line)}.meal:last-child{border:0}
+.meal b{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}.meal span{font-size:15px}
+input,select,textarea{color:var(--text)}
+.tabbar button{font-size:10.5px}
