@@ -455,7 +455,7 @@
   const tierHtml = (tiers) => tiers.map(t => `<div class="card tier ${t.c}"><h3>${esc(t.t)}</h3>${t.items.map(([n, d]) => `<div class="sitem"><b>${esc(n)}</b><span>${esc(d)}</span></div>`).join('')}</div>`).join('');
   function viewFuel() {
     const F = FUEL, m = S.meals, G = F.goals[m.goal], dow = new Date().getDay();
-    const head = `<h1>Meals</h1><div class="sub">Cheap, shelf-stable, no-cook food that can live in your car - no fridge, no cooling, no cooking.</div><div class="mt">${segHtml('fuel', { plan: '🍽️ Meal plan', supp: '💊 Supplements' }, fuelSeg)}</div>`;
+    const head = `<h1>Meals</h1><div class="sub">Cheap, shelf-stable, no-cook food that can live in your car - nothing to keep cold, nothing to cook.</div><div class="mt">${segHtml('fuel', { plan: '🍽️ Meal plan', supp: '💊 Supplements' }, fuelSeg)}</div>`;
     if (fuelSeg === 'supp') {
       const SU = F.supplements, H = F.herbal, K = F.kratom;
       return head + `
@@ -479,9 +479,9 @@
     return head + `
       <div class="card hero"><div class="row wrap">${(F.headPills || []).map((t, i) => `<span class="pill ${i ? '' : 'acc'}">${esc(t)}</span>`).join('')}</div>
         <h3 class="mt">Your goal</h3><div class="mt">${segHtml('goal', { lose: 'Lose fat', maintain: 'Maintain', build: 'Build muscle' }, m.goal)}</div>
-        <ul class="plain mt"><li><b>Protein:</b> a palm-size portion (or more) every meal - see your target below.</li><li><b>Carbs:</b> ${esc(G.carbs)}.</li><li><b>Fats:</b> ${esc(G.fats)}.</li><li>${esc(G.extra)}</li></ul>
+        <ul class="plain mt"><li><b>Protein:</b> a pouch or can of tuna/chicken/salmon, chili or beans (or a protein shake) every meal - see your target below.</li><li><b>Carbs:</b> ${esc(G.carbs)}.</li><li><b>Fats:</b> ${esc(G.fats)}.</li><li>${esc(G.extra)}</li></ul>
         <div class="sub">*Rough estimate - prices vary by store, region and season.</div></div>
-      <div class="card"><h3>🥚 Protein calculator</h3>
+      <div class="card"><h3>🥫 Protein calculator</h3>
         <div class="field"><span>Units</span><select data-meal="unit"><option value="lb" ${m.unit === 'lb' ? 'selected' : ''}>lb</option><option value="kg" ${m.unit === 'kg' ? 'selected' : ''}>kg</option></select></div>
         <div class="field"><span>Current bodyweight</span><input class="num-in" type="number" inputmode="decimal" data-meal="bw" value="${esc(m.bw)}" placeholder="${m.unit}"></div>
         <div class="field"><span>Goal bodyweight</span><input class="num-in" type="number" inputmode="decimal" data-meal="gbw" value="${esc(m.gbw)}" placeholder="${m.unit}"></div>
