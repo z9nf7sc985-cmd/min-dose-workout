@@ -440,7 +440,7 @@
   function weekTable() {
     const days = SCHED[S.settings.days] || SCHED[3], rot = rotation(), abc = S.settings.days === 3 && S.settings.rotation === 'ABC';
     let k = 0;
-    return `<div class="week">${[1, 2, 3, 4, 5, 6, 0].map(d => { const on = days.includes(d), lab = on ? (abc ? WK('home')['ABC'[days.indexOf(d)]].title : 'Workout (next in rotation)') : d === 0 ? 'Rest + meal prep' : d === 6 ? 'Rest / long walk' : 'Rest · walk · optional Car snack';
+    return `<div class="week">${[1, 2, 3, 4, 5, 6, 0].map(d => { const on = days.includes(d), lab = on ? (abc ? WK('home')['ABC'[days.indexOf(d)]].title : 'Workout (next in rotation)') : d === 0 ? 'Rest + restock car pantry' : d === 6 ? 'Rest / long walk' : 'Rest · walk · optional Car snack';
       if (on) k++; return `<div class="wk ${on ? 'on' : ''} ${d === new Date().getDay() ? 'today' : ''}"><b>${DAYN[d]}</b><span>${esc(lab)}</span></div>`; }).join('')}</div><p class="sub">${S.settings.days}×/week in the Living room (${days.map(d => DAYN[d]).join(' / ')}). Change sessions/week above.</p>`;
   }
 
@@ -455,7 +455,7 @@
   const tierHtml = (tiers) => tiers.map(t => `<div class="card tier ${t.c}"><h3>${esc(t.t)}</h3>${t.items.map(([n, d]) => `<div class="sitem"><b>${esc(n)}</b><span>${esc(d)}</span></div>`).join('')}</div>`).join('');
   function viewFuel() {
     const F = FUEL, m = S.meals, G = F.goals[m.goal], dow = new Date().getDay();
-    const head = `<h1>Meals</h1><div class="sub">Cheap, portable, mostly no-reheat food around your workouts.</div><div class="mt">${segHtml('fuel', { plan: '🍽️ Meal plan', supp: '💊 Supplements' }, fuelSeg)}</div>`;
+    const head = `<h1>Meals</h1><div class="sub">Cheap, shelf-stable, no-cook food that can live in your car - no fridge, no cooling, no cooking.</div><div class="mt">${segHtml('fuel', { plan: '🍽️ Meal plan', supp: '💊 Supplements' }, fuelSeg)}</div>`;
     if (fuelSeg === 'supp') {
       const SU = F.supplements, H = F.herbal, K = F.kratom;
       return head + `
@@ -477,7 +477,7 @@
         <p class="disclaimer">${esc(F.disclaimer)}</p>`;
     }
     return head + `
-      <div class="card hero"><div class="row wrap"><span class="pill acc">~$5-8 / day*</span><span class="pill">Car-friendly</span><span class="pill">Sunday prep</span></div>
+      <div class="card hero"><div class="row wrap">${(F.headPills || []).map((t, i) => `<span class="pill ${i ? '' : 'acc'}">${esc(t)}</span>`).join('')}</div>
         <h3 class="mt">Your goal</h3><div class="mt">${segHtml('goal', { lose: 'Lose fat', maintain: 'Maintain', build: 'Build muscle' }, m.goal)}</div>
         <ul class="plain mt"><li><b>Protein:</b> a palm-size portion (or more) every meal - see your target below.</li><li><b>Carbs:</b> ${esc(G.carbs)}.</li><li><b>Fats:</b> ${esc(G.fats)}.</li><li>${esc(G.extra)}</li></ul>
         <div class="sub">*Rough estimate - prices vary by store, region and season.</div></div>
@@ -487,19 +487,23 @@
         <div class="field"><span>Goal bodyweight</span><input class="num-in" type="number" inputmode="decimal" data-meal="gbw" value="${esc(m.gbw)}" placeholder="${m.unit}"></div>
         <div id="protOut" class="mt">${proteinOut()}</div>
         <div class="hl">Cheap protein (approximate - check labels)</div>
-        <div class="pfoods">${F.proteinFoods.map(([n, g]) => `<span>${esc(n)} <b>~${g} g</b></span>`).join('')}</div></div>
+        <div class="pfoods">${F.proteinFoods.map(([n, g]) => `<span>${esc(n)} <b>~${esc(g)} g</b></span>`).join('')}</div></div>
       <h2>7-day plan</h2>
       <div class="sub">Built around ${MODES[S.settings.mode]} workouts on Mon / Wed / Fri. ${S.settings.days === 2 ? 'On a 2×/week plan, use the workout-day meals on your training days.' : ''}</div>
-      ${F.plan.map((d, i) => { const isToday = DAYN[dow] === d.d; return `<details class="card day ${d.type} ${isToday ? 'today' : ''}" ${isToday ? 'open' : ''}><summary><span class="dname">${d.d}${isToday ? ' · today' : ''}</span><span class="pill ${d.type === 'workout' ? 'acc' : d.type === 'prep' ? 'blue' : ''}">${d.type === 'workout' ? '🏋️ ' + esc(WK(S.settings.mode)[d.w].title) : d.type === 'prep' ? '🍳 Prep day' : '😴 Rest'}</span></summary>
+      ${F.plan.map((d, i) => { const isToday = DAYN[dow] === d.d; return `<details class="card day ${d.type} ${isToday ? 'today' : ''}" ${isToday ? 'open' : ''}><summary><span class="dname">${d.d}${isToday ? ' · today' : ''}</span><span class="pill ${d.type === 'workout' ? 'acc' : d.type === 'restock' ? 'blue' : ''}">${d.type === 'workout' ? '🏋️ ' + esc(WK(S.settings.mode)[d.w].title) : d.type === 'restock' ? '🔄 Rest + restock' : '😴 Rest'}</span></summary>
         <div class="sub">${esc(F.dayNotes[d.type])}</div>
         ${d.meals.map(([w, t]) => `<div class="meal"><b>${esc(w)}</b><span>${esc(t)}</span></div>`).join('')}</details>`; }).join('')}
       <h2>🛒 Weekly grocery list</h2>
       ${F.grocery.map(g => `<div class="card"><div class="row between"><h3>${esc(g.s)}</h3><span class="pill">${esc(g.cost)}*</span></div>${g.items.map((t, j) => { const k = g.s + j; return `<label class="check"><input type="checkbox" data-got="${esc(k)}" ${m.got[k] ? 'checked' : ''}><span>${esc(t)}</span></label>`; }).join('')}</div>`).join('')}
       <div class="card"><b>Total:</b> <span class="sub">${esc(F.groceryTotal)}</span><div class="row mt"><button class="btn small ghost" data-act="clearGot">Clear checkmarks</button></div></div>
-      <h2>🍳 Sunday batch prep</h2>
+      <h2>🚗 Car-pantry checklist</h2>
+      <div class="card">${(F.pantry || []).map((t, j) => { const k = 'pantry' + j; return `<label class="check"><input type="checkbox" data-got="${k}" ${m.got[k] ? 'checked' : ''}><span>${esc(t)}</span></label>`; }).join('')}</div>
+      <h2>🌡️ Heat, storage & rotation</h2>
+      <div class="card"><ul class="plain">${(F.storage || []).map(t => `<li>${esc(t)}</li>`).join('')}</ul></div>
+      <h2>${esc(F.recipesTitle || 'Recipes')}</h2>
       ${F.recipes.map(r => `<details class="card"><summary>${esc(r.n)} <span class="sub" style="margin-left:6px">· ${esc(r.y)}</span></summary><ol class="plain">${r.steps.map(t => `<li>${esc(t)}</li>`).join('')}</ol></details>`).join('')}
       <h2>🚗 Work & car snacks</h2>
-      <div class="card"><ul class="plain">${F.snacks.map(t => `<li>${esc(t)}</li>`).join('')}</ul><p class="carnote">🧊 ${esc(F.carSafety)}</p></div>
+      <div class="card"><ul class="plain">${F.snacks.map(t => `<li>${esc(t)}</li>`).join('')}</ul></div>
       <p class="disclaimer">${esc(F.allergy)}</p>`;
   }
 

@@ -1,42 +1,58 @@
-/* MinDose v3 - cheap meals, supplements, natural & herbal. All prices are ROUGH estimates; protein grams are approximate (check your labels). */
+/* MinDose v4 - cheap SHELF-STABLE, NO-COOK car meals, supplements, natural & herbal.
+   Everything here is shelf-stable and can live in a car (shaded) with no cooling and no cooking.
+   All prices are ROUGH estimates; protein grams are approximate, from typical nutrition labels - check yours. */
 window.FUEL = {
+  headPills: ['~$5-8 / day*', 'Shelf-stable', 'No cooking', 'Car-pantry'],
   goals: {
-    lose: { label: 'Lose fat', carbs: '1 cupped hand (about 1/2 cup cooked) of rice/potato/oats per meal; skip the extra snack on rest days', fats: '1 thumb of peanut butter/oil per meal', extra: 'Fill half your container with frozen veg. Keep protein high so you hold on to muscle.' },
-    maintain: { label: 'Maintain', carbs: '1-2 cupped hands (about 3/4-1 cup cooked) of rice/potato/oats per meal', fats: '1-2 thumbs of peanut butter/oil per meal', extra: 'Eat the plan as written; adjust if your weight drifts over 2-3 weeks.' },
-    build: { label: 'Build muscle', carbs: '2 cupped hands (about 1-1.5 cups cooked) of rice/potato/oats per meal', fats: '2 thumbs of peanut butter/oil per meal', extra: 'Add the "builder snack" every day: tortilla + 2 tbsp peanut butter + banana + a glass of milk.' }
+    lose: { label: 'Lose fat', carbs: '1 carb item per meal: 1 ready rice cup OR 1 tortilla OR 1 instant-oatmeal packet (about 1/2 cup oats); fruit with breakfast', fats: '1 peanut-butter squeeze pack (or a small handful of nuts) per day, not per meal', extra: 'Build each meal around a protein pouch/can plus beans or canned veg. Keep protein high so you hold on to muscle.' },
+    maintain: { label: 'Maintain', carbs: '1-2 carb items per meal (rice cup, tortilla, oatmeal packets, crackers or rice cakes)', fats: '1-2 PB squeeze packs or small handfuls of nuts/seeds per day', extra: 'Eat the plan as written; adjust if your weight drifts over 2-3 weeks.' },
+    build: { label: 'Build muscle', carbs: '2 carb items per meal (e.g. 2 tortillas, or rice cup + crackers, or 2 oatmeal packets)', fats: '2-3 PB squeeze packs or handfuls of nuts/trail mix per day', extra: 'Add the "builder snack" every day: tortilla + PB squeeze pack + banana, with a UHT milk box or a protein-powder shake.' }
   },
   proteinFoods: [
-    ['3 eggs', 18], ['1 can tuna or chicken (drained)', 20], ['1 cup Greek yogurt', 17], ['4 oz cooked chicken thigh', 25],
-    ['1 cup cooked lentils/beans', 16], ['1 cup milk', 8], ['2 tbsp peanut butter', 7], ['1/2 cup dry oats', 5]
+    ['Tuna pouch (2.6 oz)', 17], ['Chicken pouch (2.6 oz)', 15], ['Salmon pouch (2.5 oz)', 14], ['Sardines, 1 can (3.75 oz)', 21],
+    ['Chili with beans, 1 cup', 15], ['Canned beans, 1/2 cup', 7], ['Beef jerky, 1 oz', 9], ['Protein powder, 1 scoop', '20-25'],
+    ['UHT milk box (8 oz) or 1/3 cup powdered milk', 8], ['PB squeeze pack (1.15 oz)', 7], ['Peanuts, 1 oz', 7], ['Instant oatmeal packet', 4], ['Flour tortilla (8")', 4]
   ],
   plan: [
-    { d: 'Sun', type: 'prep', meals: [['Breakfast', 'Eggs + tortilla + banana'], ['Lunch', 'Leftovers / rice & beans'], ['Batch prep (60-90 min)', 'Sheet-pan chicken & potatoes, rice & lentils pot, 5 overnight-oats jars, a dozen boiled eggs'], ['Dinner', 'Sheet-pan chicken + potatoes + veg']] },
-    { d: 'Mon', type: 'workout', w: 'A', meals: [['Breakfast (grab & go)', 'Overnight oats: oats + milk + PB + banana'], ['Lunch (car OK, no reheat)', 'Chicken, rice & bean burrito (good cold)'], ['Before/after workout', 'Banana + 2 boiled eggs'], ['Dinner', 'Sheet-pan chicken + potatoes + frozen veg']] },
-    { d: 'Tue', type: 'rest', meals: [['Breakfast', 'Overnight oats (smaller scoop of oats)'], ['Lunch (car OK)', 'Tuna-yogurt wrap + baby carrots or a bag of frozen-then-thawed veg'], ['Snack', 'Greek yogurt + a spoon of PB'], ['Dinner', 'Lentil & rice bowl + 2 eggs + extra veg']] },
-    { d: 'Wed', type: 'workout', w: 'B', meals: [['Breakfast (grab & go)', 'Overnight oats + banana'], ['Lunch (car OK)', 'Rice, lentil & chicken bowl (eat cold or room temp)'], ['Before/after workout', 'Tortilla + PB + banana'], ['Dinner', 'Chicken thighs + potatoes + veg']] },
-    { d: 'Thu', type: 'rest', meals: [['Breakfast', '3 boiled eggs + tortilla'], ['Lunch (car OK)', 'Chicken-yogurt wrap + an apple or banana'], ['Snack', 'Glass of milk or Greek yogurt'], ['Dinner', 'Bean & rice burrito bowl + veg']] },
-    { d: 'Fri', type: 'workout', w: 'C', meals: [['Breakfast (grab & go)', 'Overnight oats + banana'], ['Lunch (car OK)', 'Tuna & rice bowl with hot sauce'], ['Before/after workout', 'Greek yogurt + banana + oats sprinkle'], ['Dinner', 'Potato-egg hash (potatoes, eggs, veg)']] },
-    { d: 'Sat', type: 'rest', meals: [['Breakfast', 'Egg scramble + tortilla'], ['Lunch', 'Use up leftovers'], ['Snack', 'PB on a tortilla'], ['Dinner', 'Lentil soup / chili with rice']] }
+    { d: 'Mon', type: 'workout', w: 'A', meals: [['Breakfast', 'Jar oats: oats + water + 2 Tbsp powdered milk + 1 scoop protein powder, shake, wait 10-15 min; + banana'], ['Lunch', 'Tuna-bean tortilla wrap + apple'], ['Before/after workout', 'Banana + PB squeeze pack + rice cake'], ['Dinner', 'Chicken pouch + ready rice cup bowl (room temp) + can of corn']] },
+    { d: 'Tue', type: 'rest', meals: [['Breakfast', '1 instant-oatmeal packet in water + protein shake (powder + water)'], ['Lunch', 'Bean & salsa crackers + tuna pouch'], ['Snack', 'Jerky + raisins'], ['Dinner', 'Canned chili (eat as is) + crackers + canned green beans']] },
+    { d: 'Wed', type: 'workout', w: 'B', meals: [['Breakfast', 'PB-banana-oat wrap + UHT milk box'], ['Lunch', 'Salmon pouch + ready rice cup + hot sauce packet'], ['Before/after workout', 'Rice cakes + PB squeeze pack + banana'], ['Dinner', 'Chili + ready rice cup']] },
+    { d: 'Thu', type: 'rest', meals: [['Breakfast', 'Jar oats + protein powder (water-soaked)'], ['Lunch', 'Chicken pouch tortilla wrap + canned fruit cup'], ['Snack', 'Peanuts + raisins (no-chocolate trail mix)'], ['Dinner', 'Bean & salsa crackers + tuna pouch + canned green beans']] },
+    { d: 'Fri', type: 'workout', w: 'C', meals: [['Breakfast', '2 instant-oatmeal packets in water + protein shake + orange'], ['Lunch', 'Tuna-bean tortilla wrap'], ['Before/after workout', 'Banana + rice cakes + PB squeeze pack'], ['Dinner', 'Chicken pouch + rice cup bowl + can of corn']] },
+    { d: 'Sat', type: 'rest', meals: [['Breakfast', 'PB tortilla + UHT milk box'], ['Lunch', 'Sardines + crackers + applesauce pouch'], ['Snack', 'Jerky + trail mix (no chocolate)'], ['Dinner', 'Chili + crackers + canned veg']] },
+    { d: 'Sun', type: 'restock', meals: [['Breakfast', 'Jar oats + protein powder + apple'], ['Lunch', 'Use up the oldest pouches/cans first'], ['Restock (15 min)', 'Check every can and pouch, toss damaged ones, buy fresh fruit, refill the car bin (see checklist)'], ['Dinner', 'Chicken pouch + rice cup + canned veg']] }
   ],
-  dayNotes: { workout: 'Workout day: slightly more carbs - keep the banana/oats/potato around your workout.', rest: 'Rest day: same protein, a little less rice/potato, more veg. Walk.', prep: 'Prep day: cook once, eat all week.' },
+  dayNotes: { workout: 'Workout day: slightly more carbs - keep the banana, oats, rice cup or rice cakes around your workout.', rest: 'Rest day: same protein, a little less rice/oats/tortilla, more canned veg and fruit. Walk.', restock: 'Restock day: rotate your car pantry - oldest first.' },
   grocery: [
-    { s: 'Protein', cost: '$14-20', items: ['Eggs - 2 dozen', 'Chicken thighs - about 3 lb (bone-in is cheapest)', 'Canned tuna - 4 cans', 'Canned chicken - 1-2 cans (optional)'] },
-    { s: 'Dairy', cost: '$6-9', items: ['Milk - 1 gallon (or shelf-stable)', 'Plain Greek yogurt - 32 oz tub'] },
-    { s: 'Pantry', cost: '$9-13', items: ['Rolled oats - large canister (lasts 2+ weeks)', 'Rice - 2-5 lb bag (lasts weeks)', 'Dry lentils or beans - 1-2 lb (or 4 cans)', 'Peanut butter - 1 jar', 'Tortillas - 10-pack', 'Salt, pepper, chili powder, hot sauce (one-time)'] },
-    { s: 'Produce', cost: '$6-8', items: ['Bananas - 7-10', 'Potatoes - 5 lb bag', 'Onions - 2-3', 'Baby carrots or apples (optional)'] },
-    { s: 'Frozen', cost: '$4-6', items: ['Mixed vegetables - 2 bags', 'Spinach or broccoli - 1 bag'] }
+    { s: 'Protein pouches & cans', cost: '$13-18', items: ['Tuna pouches (light tuna) - 6', 'Chicken pouches - 4', 'Salmon pouches or sardine cans (pull-tab) - 2-3', 'Beef jerky - 1 small bag (optional, pricier)'] },
+    { s: 'Beans & ready-to-eat cans', cost: '$5-7', items: ['Canned beans (black/pinto), low-sodium, pull-tab if possible - 3-4', 'Canned chili with beans - 2-3', 'Single-serve salsa cups or hot-sauce packets'] },
+    { s: 'Grains & carbs', cost: '$8-10', items: ['Instant oatmeal packets or a canister of oats', 'Tortillas - 10-pack (check for mold after ~a week)', 'Ready rice cups (microwavable, eaten room temp) - 4-6', 'Rice cakes and/or whole-grain crackers'] },
+    { s: 'Spreads, nuts & dried fruit', cost: '$5-7', items: ['Peanut-butter squeeze packs (or a jar)', 'Peanuts or sunflower seeds', 'Raisins or other dried fruit', 'Trail mix WITHOUT chocolate (it melts)'] },
+    { s: 'Fruit & veg (shelf-stable)', cost: '$5-7', items: ['Bananas - 4-6 (eat within 2-3 days)', 'Apples or oranges - 4-6', 'Applesauce pouches', 'Canned corn / green beans (no-salt-added) and canned fruit cups'] },
+    { s: 'Shelf-stable milk & protein', cost: '$5-8', items: ['Powdered milk or UHT (shelf-stable) milk boxes', 'Protein powder - weekly share of a tub (a tub lasts weeks)', 'Water - a case (keep it out of the sun)'] }
   ],
-  groceryTotal: 'About $40-55 per week (roughly $6-8/day). Rough estimate only - prices vary a lot by store, region and season. Rice, oats, PB and spices last more than a week, so later weeks are often cheaper.',
+  groceryTotal: 'About $40-55 per week (roughly $6-8/day). Rough estimate only - prices vary a lot by store, region and season. Oats, protein powder, powdered milk and PB last more than a week, so later weeks are often cheaper.',
+  pantry: ['Pull-tab cans/pouches (or a small manual can opener)', 'Spoon + fork, paper bowls, napkins', 'Wet wipes or hand sanitizer', 'Small trash bags', 'Sealable jar or shaker bottle (for oats and protein shakes)', 'Salt, pepper and hot-sauce packets', '2-3 days of backup protein pouches', 'Water bottles (shaded, under a seat)'],
+  storage: [
+    'Keep food in a closed bin or insulated bag under a seat or in the trunk, out of direct sun. The bag is only a heat shield - no ice or cooling needed.',
+    'Hot cars wear food down over time: rotate weekly (oldest first), keep only a few days of stock on very hot weeks, and bring it inside on scorching days if you can.',
+    'Throw away bulging, leaking, rusty or badly dented cans (especially dents on the seams) and puffy or torn pouches. When in doubt, throw it out.',
+    'Once a can or pouch is opened, eat it in one sitting - no saving leftovers.',
+    'Fresh fruit: bananas 2-3 days, apples and oranges about a week in the car.',
+    'Water: keep bottles out of the sun and drink plenty, especially on workout days.',
+    'Sodium watch: pouches, canned chili and jerky are salty. Pick low-sodium / no-salt-added beans and veg, and drink water. If you have high blood pressure or kidney issues, ask your doctor.',
+    'Clean hands (wipes or sanitizer) before eating.'
+  ],
+  recipesTitle: '🥫 No-cook car "assembly" recipes',
   recipes: [
-    { n: 'Sheet-pan chicken & potatoes', y: '4-5 meals', steps: ['Oven 425°F. Cube 2 lb potatoes; toss with oil, salt, pepper, chili powder.', 'Add about 3 lb chicken thighs to the pan, season the same.', 'Bake 35-45 min until chicken reaches 165°F inside.', 'Add a bag of frozen veg for the last 15 min. Portion into containers.'] },
-    { n: 'Big pot rice & lentils', y: '6-8 servings', steps: ['Rinse 2 cups rice and 1 cup lentils.', 'Simmer with 6 cups water, salt, chopped onion and chili powder ~25 min, lid on.', 'Cool fast (spread on a tray), refrigerate within 2 hours.', 'Use for burritos and bowls all week.'] },
-    { n: 'Overnight oats (5 jars)', y: '5 breakfasts', steps: ['Per jar: 1/2 cup oats + 3/4 cup milk + 1/4 cup Greek yogurt + 1 tbsp PB.', 'Stir, lid on, fridge overnight.', 'Add a banana in the morning. Eat cold - no reheating.'] },
-    { n: 'Boiled eggs (dozen)', y: '12 eggs', steps: ['Cover eggs with water, bring to a boil.', 'Lid on, heat off, wait 10-12 min.', 'Move to cold water, then fridge. Good about a week in the shell.'] },
-    { n: 'Tuna or chicken-yogurt wraps', y: '4 wraps', steps: ['Mix 2 cans drained tuna/chicken with 1/2 cup Greek yogurt, salt, pepper, hot sauce.', 'Spread on tortillas, add spinach or chopped onion.', 'Roll tightly in foil. Eat cold within 1-2 days.'] }
+    { n: 'Tuna-bean tortilla wrap', y: '1 meal · ~30 g protein', steps: ['Open a tuna pouch and a small can of beans (or use half and eat the rest in the same sitting).', 'Spoon tuna + beans onto a tortilla; add a salsa cup or hot sauce.', 'Roll it up and eat right away.'] },
+    { n: 'PB-banana-oat wrap', y: '1 meal · ~15 g protein', steps: ['Squeeze a PB pack onto a tortilla.', 'Add a sliced banana and a spoonful of dry oats or raisins.', 'Roll it up. Have it with a UHT milk box or protein shake for more protein.'] },
+    { n: 'Chicken pouch + rice cup bowl', y: '1 meal · ~20 g protein', steps: ['Peel open a ready rice cup (fine at room temperature).', 'Mix in a chicken pouch and half a can of corn or green beans.', 'Season with salt/pepper or hot sauce. Eat the whole thing now.'] },
+    { n: 'Water-soaked jar oats + protein', y: '1 breakfast · ~30 g protein', steps: ['In a jar: 1/2 cup oats (or an instant packet) + 1 scoop protein powder + 2 Tbsp powdered milk.', 'Add water, close, shake well.', 'Wait 10-15 min and eat. Mix it fresh - don\'t leave it sitting in a warm car for hours.'] },
+    { n: 'Bean & salsa crackers', y: '1 meal · ~15 g protein (+ a tuna pouch for ~30 g)', steps: ['Open a can of beans and a salsa cup.', 'Mash a few beans with a fork, top crackers with beans + salsa.', 'Add a tuna or chicken pouch on the side for more protein.'] }
   ],
-  snacks: ['Banana + peanut butter tortilla roll', 'Boiled eggs (pre-peeled, in a container)', 'Greek yogurt cup with oats', 'Single-serve tuna pouch', 'A handful of peanuts or trail mix', 'Shelf-stable milk box', 'Apple or carrots'],
-  carSafety: 'Car food safety: keep perishables (chicken, eggs, yogurt, milk, tuna once opened) in an insulated bag with an ice pack. Don\'t leave them out of the cold more than 2 hours - or 1 hour if it\'s above 90°F (car cabins get much hotter). When in doubt, throw it out.',
-  allergy: 'Allergy / medical note: this plan uses eggs, milk, peanuts, wheat (tortillas) and fish. Swap freely (e.g. sunflower butter, lactose-free milk, corn tortillas). If you have kidney disease, diabetes, food allergies, an eating disorder history, or take medications, check with your doctor or a registered dietitian before changing your diet.',
+  snacks: ['Banana + PB squeeze pack', 'Beef jerky', 'Peanuts or no-chocolate trail mix', 'Tuna or chicken pouch with crackers', 'Rice cakes + PB', 'Applesauce pouch or canned fruit cup', 'Raisins / dried fruit', 'Protein powder + water in a shaker'],
+  allergy: 'Allergy / medical note: this plan uses fish, peanuts, wheat/gluten (tortillas, crackers), milk (powdered/UHT milk, many protein powders) and possibly soy and tree nuts (trail mix, some powders). Dried fruit can contain sulfites. Swap freely - sunflower-seed butter, plant protein, corn tortillas or rice cakes. Mix your fish: light tuna, salmon and sardines are lower-mercury choices; go easy on albacore. Pouches, canned foods and jerky are high in sodium. If you have kidney disease, high blood pressure, diabetes, food allergies, an eating-disorder history, or take medications, check with your doctor or a registered dietitian before changing your diet.',
   supplements: {
     intro: 'Food first. These are simple helpers - none of them replace sleep, training and real meals.',
     faith: { text: 'What? know ye not that your body is the temple of the Holy Ghost which is in you, which ye have of God, and ye are not your own? For ye are bought with a price: therefore glorify God in your body, and in your spirit, which are God\'s.', ref: '1 Corinthians 6:19-20 (KJV)', note: 'Caring for your body with whole food, rest and honest work is a way of honoring it. Supplements are simple helpers, not shortcuts - and it\'s wise to steer clear of banned or questionable products.' },
@@ -50,7 +66,7 @@ window.FUEL = {
       ] },
       { t: 'Reasonable', c: 'ok', items: [
         ['Magnesium glycinate', 'May help sleep and relaxation if your diet is low in magnesium. Gentle on the stomach.'],
-        ['Omega-3 fish oil', 'Heat can make fish oil go rancid - keep it cool. Canned sardines or salmon a couple of times a week is a cheap food alternative.'],
+        ['Omega-3 fish oil', 'Heat makes fish oil go rancid, so capsules are a poor fit for a hot car. Sardine or salmon pouches/cans a couple of times a week are the cheap, car-friendly food alternative.'],
         ['Caffeine / coffee (optional)', 'A cup of coffee 30-60 min before training can help effort. Skip it late in the day so it doesn\'t hurt sleep.']
       ] },
       { t: 'Skip / not needed', c: 'skip', items: [
